@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>出入练习</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			#right_in {
+				margin-right: 50px;
+			}
+			
+			ul {
+				list-style: none;
+				background-color: green;
+				margin-top: 20px;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var ul = document.getElementById("ul");
+
+			}
+
+			function insert(direction) {
+				if(direction == "left") {
+					ul.insertBefore(add(), ul.firstChild);
+				} else if(direction == "right") {
+					ul.appendChild(add());
+				}
+
+				var lis = ul.getElementsByTagName("li");
+
+				deleteData(ul, lis);
+			}
+
+			function leftOut() {
+
+				btnDelete(ul, ul.firstChild);
+			}
+
+			function rightOut() {
+
+				btnDelete(ul, ul.lastChild);
+			}
+
+			//获取用户h输入的数字并为ul创建相应的子元素
+			function add() {
+				var mNumber = document.getElementById("mNumber");
+
+				if(mNumber.value == "") {
+					alert("请输入需要插入的值"); //输入框为空，按钮点击时，跳出提示框
+					//					mNumber.focus();
+				} else if(isNaN(mNumber.value)) {
+					alert("只能输入数字"); //输入框为非数字，按钮点击时，跳出提示框
+					mNumber.value = "";
+					//					mNumber.focus();
+				} else {
+					var li = document.createElement("li");
+
+					li.style.float = "left";
+					li.style.backgroundColor = "red";
+					li.style.color = "white";
+					li.style.padding = "5px 10px";
+					li.style.marginRight = "10px";
+
+					li.innerHTML = mNumber.value;
+					return li;
+
+				}
+
+			}
+
+			//为每一个li添加点击删除事件
+			function deleteData(a, b) {
+				for(var i = 0; i < b.length; i++) {
+					b[i].onclick = function() {
+						var isDelete = confirm("您确定要删除此数据吗？");
+						if(isDelete) {
+							a.removeChild(this);
+						}
+					}
+				}
+			}
+
+			//a删除b这个子元素
+			function btnDelete(a, b) {
+
+				var isDelete = confirm("您确定要删除元素吗");
+				if(isDelete) {
+					a.removeChild(b);
+
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<input id="mNumber" type="text" />
+			<button id="left_in" onclick="insert('left')">左侧入</button>
+			<button id="right_in" onclick="insert('right')">右侧入</button>
+			<button id="left_out" onclick="leftOut()">左侧出</button>
+			<button id="right_out" onclick="rightOut()">右侧出</button>
+		</div>
+		<ul id="ul"></ul>
+
+	</body>
+
+</html>
