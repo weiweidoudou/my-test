@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表格应用</title>
+		<style>
+			.selected{
+				background-color: blue;
+			}
+		</style>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script>
+			$(function(){
+//				$("tbody tr:odd").css("background","red");
+				//$("tbody tr:contains('王五')").addClass("selected");
+				$("tbody input:checked").parents("tr").addClass("selected");
+//				$("tbody tr").click(function(){
+//					$(this).addClass("selected")
+//					.find("input").attr("checked",true)
+//					.end()
+//					.siblings().removeClass("selected");
+//					
+//				});
+				$("tbody tr").click(function(){
+					if($(this).hasClass("selected")){
+						$(this)
+							.removeClass("selected")
+							.find("input").attr("checked",false);
+					}else{
+						$(this)
+							.addClass("selected")
+							.find("input").attr("checked",true)
+							
+					}
+				});
+				
+				$(".parent").click(function(){
+					$(this).siblings(".child_"+this.id).toggle();
+				})
+				$("#fil").keyup(function(){
+					var val=$(this).val();
+					$("tbody tr").hide()
+					.filter(":contains("+val+")").show();
+				})
+			})
+			
+		</script>
+	</head>
+	<body>
+		筛选：<input type="text" id="fil"/>
+		<table>
+			<thead>
+				<tr>
+					<td></td>
+					<td>姓名</td>
+					<td>性别</td>
+					<td>暂住地</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="parent" id="row_1"><td>前台设计组</td></tr>
+				<tr class="child_row_1">
+					<td><input type="checkbox"/></td>
+					<td>张三</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+				<tr class="child_row_1">
+					<td><input type="checkbox" checked="checked"/></td>
+					<td>李四</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+				<tr class="parent" id="row_2"><td>前台开发组</td></tr>
+				
+				<tr class="child_row_2">
+					<td><input type="checkbox"/></td>
+					<td>王五</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr class="child_row_2"><tr>
+					<td><input type="checkbox"/></td>
+					<td>赵六</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+				<tr class="parent" id="row_3"><td>后台开发组</td></tr>
+				
+				<tr class="child_row_3">
+					<td><input type="checkbox"/></td>
+					<td>张三</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+				<tr class="child_row_3">
+					<td><input type="checkbox"/></td>
+					<td>李四</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+				<tr class="child_row_3">
+					<td><input type="checkbox"/></td>
+					<td>王五</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+				<tr class="child_row_3">
+					<td><input type="checkbox"/></td>
+					<td>赵六</td>
+					<td>男</td>
+					<td>浙江宁波</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

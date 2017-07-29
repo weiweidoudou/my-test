@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.outer{
+				border: 1px solid black;
+				padding: 20px;
+			}
+			li{ 
+				list-style: none;
+				width:100px;
+				height: 20px;
+				background-color: gray;
+				text-align: center;
+				margin-top: 40px;
+			}
+			.color>div{
+				float: left;
+				width: 40px;
+				height: 20px;
+				margin-right: 5px;
+				
+			}
+		</style>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script>
+			var arr=["gray","blue","red","yellow","green","orange"];
+			$(function(){
+				$(".color>div").each(function(){
+					$(this).css("background",arr[$(".color>div").index(this)]);
+				}).click(function(){
+					$(".outer").css("background",arr[$(".color>div").index(this)])
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="color">
+				<div>灰色</div>
+				<div>蓝色</div>
+				<div>红色</div>
+				<div>黄色</div>
+				<div>绿色</div>
+				<div>橙色</div>
+			</div>
+			<div class="content">
+				<ul>
+					<li>时事新闻</li>
+					<li>体育新闻</li>
+					<li>娱乐新闻</li>
+					
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

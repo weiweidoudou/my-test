@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>表单验证</title>
+		<style>
+			div {
+				margin: 20px;
+			}
+			
+			label {
+				float: left;
+				width: 60px;
+				text-align: right;
+			}
+			input {
+				padding: 1px 1px;
+				border: 1px solid #ccc;
+				height: 16px;
+			}
+			
+			.btn {
+				margin: 20px 150px;
+			}
+			
+			strong,
+			.onError {
+				color: red;
+			}
+			.onSuccess{
+				color: green;
+			}
+			
+			span {
+				font-size: 12px;
+			}
+		</style>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script>
+			$(function() {
+				$("form input").blur(function() {
+
+					switch(this.id) {
+						case "userName":
+
+							if(this.value == "" || this.value.length < 6) {
+								$(this).parent().find("span").remove();
+								
+
+								$(this).parent().append("<span class='onError'>请至少输入长度大于6的用户名<span>");
+								
+							} else {
+								$(this).parent().find("span").remove();
+								
+								$(this).parent().append("<span class='onSuccess'>输入正确<span>")
+							}
+
+							break;
+
+						
+						case "email":
+							var regEmail = /^\w{3,}(\.\w+)*@\w{2,4}\.com(\.cn)*$/;
+							if(this.value == "" || (this.value!=""&&!regEmail.test(this.value))) {
+								$(this).parent().find("span").remove();
+								$(this).parent().append("<span class='onError'>请输入正确的Email地址<span>");
+								
+							} else {
+								$(this).parent().find("span").remove();
+								
+								$(this).parent().append("<span class='onSuccess'>输入正确<span>")
+							}
+							break;
+
+					}
+				}).keyup(function(){
+					$(this).triggerHandler("blur");
+				}).focus(function(){
+					$(this).triggerHandler("blur");
+					
+				})
+				
+				$("#submit").click(function(){
+					$("form input").trigger("blur");
+					var len=$(".onError").length;
+					if(len>0){
+						alert("请填写正确的用户名和邮箱再提交!");
+					return false;
+					}else{
+						alert("注册成功，密码已发送至您的邮箱，请注意查收！");
+					}
+					
+
+				})
+				// 1432664223@qq.com
+				$("#resert").click(function(){
+					$("input").val("");
+					$("span").remove();
+					return false;
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<form method="post" action="全选.html">
+
+			<div>
+				<label for="userName">用户名</label>
+				<input type="text" id="userName" />
+				<strong>*</strong>
+			</div>
+
+			<div>
+				<label for="email">邮箱</label>
+				<input type="email" id="email" />
+				<strong>*</strong>
+
+			</div>
+
+			<div>
+				<label for="message">个人资料</label>
+				<input type="text" id="message" />
+			</div>
+
+			<div class="btn">
+				<button id="submit">提交</button>
+				<button id="resert">重置</button>
+			</div>
+
+		</form>
+	</body>
+
+</html>

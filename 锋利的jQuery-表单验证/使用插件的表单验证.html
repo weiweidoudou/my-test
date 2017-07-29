@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			p {
+				margin: 20px;
+			}
+			
+			label {
+				float: left;
+				width: 60px;
+				text-align: right;
+			}
+			/*p{
+				clear: both;
+			}*/
+			label.error{
+				float: none;
+				color: red;
+				padding-left: 5em;
+				vertical-align: top;
+			}
+			input {
+				padding: 1px 1px;
+				border: 1px solid #ccc;
+				height: 16px;
+			}
+			
+			.btn {
+				margin: 20px 150px;
+			}
+		</style>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script>
+			$(function(){
+				$("form").validate();
+			})
+		</script>
+	</head>
+
+	<body>
+		<form method="post" action="全选.html">
+
+			<p>
+				<label for="userName">用户名</label>
+				<strong>*</strong>
+				
+				<input type="text" id="userName" class="required" minlength="2"/>
+
+			</p>
+
+			<p>
+				<label for="email">邮箱</label>
+				<strong>*</strong>
+				
+				<input type="email" id="email" class="required"/>
+			
+
+			</p>
+
+			<p>
+				<label for="message">个人资料</label>
+				<input type="text" id="message" />
+			</p>
+
+			<p class="btn">
+				<button id="submit">提交</button>
+				<button id="resert">重置</button>
+			</p>
+
+	</body>
+
+</html>

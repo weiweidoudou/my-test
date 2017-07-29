@@ -1,0 +1,48 @@
+
+
+.right .main{width: 550px;height: 321px;float: left;position: relative;overflow: hidden;}
+.adImgs{width: 550px;height: 321px;position: absolute;}
+.adImgs img{position: absolute;left: 0px;top: 0px;}
+
+
+
+.main ul{position: absolute;left: 0px;top: 279px;}
+.main li{float: left;color: white;width: 79px;height: 32px;font-size: 12px;padding: 5px 15px;background-color: #444;}
+.main li{margin-left: 1.25px;}
+.main li.one{margin-left: 0px;}
+.main p{text-align: center;}
+
+.main li.highLight{background-color: mediumspringgreen}
+
+
+
+.right .message{width: 230px;height: 321px;float: right;margin-left: 10px;}
+.message .new{width:228px;height: 133px;border: 1px solid #dfdfdf;margin-top: 6px;}
+.message h4{height: 23px;border-bottom: 1px solid #dfdfdf;font-size: 14px;line-height: 23px;}
+.message ul{padding: 8px;}
+.message li{font-size: 12px;width: 181px;height: 20px;position: relative;}
+.message a{color: #666;}
+.message a:hover{color: blue;}
+			
+.right .activity{overflow: hidden; width: 790px;height: 230px;margin-top: 10px;position: absolute;top: 331px;}
+.a_top{height: 29px;border-bottom: 1px solid lightgray;margin-bottom: 10px;}
+.a_top h4{float: left;line-height: 29px;}
+.a_top ul{float: right;width: 216px;height: 20px;margin-top: 9px;}
+.a_top ul li{float:left;width: 44px;background-color: #e4e4e4;margin-right: 10px;line-height: 20px;text-align: center;font-size: 14px;}
+.a_top a:hover{text-decoration: underline;}
+
+.a_bottom{width: 3160px;height: 188px;position: absolute;}
+.a_bottom li{width:183px;height:188px;float: left;margin: 0px 7px;}			
+.a_bottom li div{width;183px;height:25px;text-align: center;line-height:25px;background-color: #efefef;}
+.a_bottom a{color: #666;}
+.a_bottom a:hover{color: blue;}
+
+
+
+#myTitle{
+	background-color: white;
+	height: 20px;
+	font-size: 10px;
+	position: absolute;
+	
+}

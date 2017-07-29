@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.outer {
+				border: 1px solid black;
+				padding: 5px;
+			}
+			
+			.content li {
+				list-style: none;
+				width: 100px;
+				height: 20px;
+				background-color: gray;
+				text-align: center;
+				margin-top: 40px;
+			}
+			
+			.color>li {
+				list-style: none;
+				text-align: center;
+				float: left;
+				width: 35px;
+				height: 20px;
+				margin-right: 5px;
+				border: 1px solid black;
+			}
+			
+			#gray {
+				background-color: gray;
+			}
+			
+			#blue {
+				background-color: blue;
+			}
+			
+			#orange {
+				background-color: orange;
+			}
+			
+			#red {
+				background-color: red;
+			}
+			
+			#yellow {
+				background-color: yellow;
+			}
+			
+			#green {
+				background-color: green;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/grayStyle.css" id="cssSheet" />
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script src="jquery.cookie.js"></script>
+		<script>
+			$(function() {
+				//				$(".color>li").each().click(function(){
+				//					$("#cssSheet").attr("href","css/"+this.id+"Style.css");
+				//				})
+				$(".color>li").click(function() {
+					changeSkin(this.id);
+				});
+
+				var cookie_skin = $.cookie("MyCssSkin");
+
+				if(cookie_skin) {
+					changeSkin(cookie_skin);
+				}
+
+				function changeSkin(id) {
+					$("#" + id)
+						.html("✔")
+						.siblings().html("");
+					$("#cssSheet").attr("href", "css/" + id + "Style.css");
+					$.cookie("MyCssSkin", id, {path: '/',expires: 10});
+				}
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<div class="outer">
+			<ul class="color">
+
+				<li id="gray"></li>
+				<li id="blue"></li>
+				<li id="red"></li>
+				<li id="yellow"></li>
+				<li id="green"></li>
+				<li id="orange"></li>
+
+			</ul>
+			<div class="content">
+				<ul>
+					<li>时事新闻</li>
+					<li>体育新闻</li>
+					<li>娱乐新闻</li>
+
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>

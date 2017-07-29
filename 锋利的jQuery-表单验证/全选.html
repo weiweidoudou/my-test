@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script>
+			$(function() {
+				var $ball = $("[name='items']:checkbox");
+				//第一个按钮，选中时下面四个多选按钮全被选中，未选中时下面四个多选框全未被选中
+				$("#allbtn").click(function() {
+//					if(this.checked) {
+//						$ball.attr("checked", true);
+//					} else {
+//						$ball.attr("checked", false); //有效果
+//						//$ball.attr("checked", "false"); //无效果
+//					}
+					$ball.attr("checked", this.checked);
+
+				});
+				//全选按钮
+				$("#CheckedAll").click(function() {
+					$ball.attr("checked", true);
+				});
+				//全不选按钮
+				$("#CheckedNo").click(function() {
+					$ball.attr("checked", false);
+
+				})
+				//反选按钮
+				$("#CheckedRev").click(function() {
+					$ball.each(function() {
+						this.checked = !this.checked;
+					})
+				})
+				//选中多选框的时候，如果所有的都被选中了，则全选多选框被选中，反之不被选中
+				$ball.click(function() {
+//					var flag = true;
+//					$ball.each(function() {
+//						if(!this.checked) {
+//							flag = false;
+//						}
+//					});
+//					$("#allbtn").attr("checked", flag);
+					var len=$ball.length;
+					$("#allbtn").attr("checked", $ball.filter(":checked").length==len);
+					
+					
+				})
+				//点击提交按钮时弹出被选中的
+				$("#send").click(function() {
+					var str="你选中的是：";
+					$ball.each(function() {
+						if(this.checked) {
+							str += this.value+" ";
+						}
+					});
+					
+						alert(str);
+
+					
+
+				});
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<form method="post" action="">
+			你爱好的运动是？
+			<input type="checkbox" id="allbtn" />全选/全不选
+			<br/>
+			<input type="checkbox" name="items" value="足球" />足球
+			<input type="checkbox" name="items" value="篮球" />篮球
+			<input type="checkbox" name="items" value="羽毛球" />羽毛球
+			<input type="checkbox" name="items" value="乒乓球" />乒乓球
+			<br/>
+			<input type="button" id="CheckedAll" value="全　选" />
+			<input type="button" id="CheckedNo" value="全不选" />
+			<input type="button" id="CheckedRev" value="反　选" />
+
+			<input type="button" id="send" value="提　交" />
+	</body>
+
+</html>

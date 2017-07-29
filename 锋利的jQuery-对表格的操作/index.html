@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			textarea {
+				overflow: scroll;
+				height: 200px;
+				scrollTop:100;
+			}
+		</style>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script>
+			$(function(){
+				$("button:first").click(function(){
+					
+					$("textarea").animate({scrollTop:"+=50"},"slow");//有效果
+//				
+//					$("textarea").css("scrollTop",50);//没变化，动都不动==
+
+//					$("textarea").css("scrollTop","+=50");//没变化，动都不动==
+
+					$("textarea").scrollTop(50);//有效果
+					
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+		<button>向下</button>
+		<button>向上</button>
+		<textarea id="tex">
+		        多行文本框多行文本框多行文本框
+			多行文本框多行文本框多行文本框多行文本
+			框多行文本框多行文本框多行文本框多行文
+			本框多行文本框多行文本框本框多行文本框
+			多行文本框本框多行文本框多行文本框多行文本框多行文本框多行文本框
+			多行文本框多行文本框多行文本框多行文本
+			框多行文本框多行文本框多行文本框多行文
+			本框多行文本框多行文本框本框多行文本框
+			多行文本框本框多行文本框多行文本框
+		</textarea>
+
+	</body>
+
+</html>

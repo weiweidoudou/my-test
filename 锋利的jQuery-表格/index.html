@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../scripts/jquery-3.2.1.js"></script>
+		<script>
+			$(function() {
+				//使表格隔行变色
+				$("tbody tr:odd").css("background","red");
+				
+				//点击变色
+//				$("tr").click(function() {
+//					$(this).css("background", "red").siblings().css("background", "white");
+//				})
+
+			});
+			//			window.onload = function() {
+			//				var trs = document.getElementsByTagName("tr");
+			//				for(var i = 0; i < trs.length; i++) {
+			//					trs[i].onclick = function() {
+			//						this.style.backgroundColor = "red";
+			//					}
+			//				}
+			//			}
+
+						
+		
+		</script>
+	</head>
+
+	<body>
+		<table>
+			<tbody>
+
+				<tr>
+					<td>第一行</td>
+					<td>第一行</td>
+				</tr>
+				<tr>
+					<td>第二行</td>
+					<td>第二行</td>
+				</tr>
+				<tr>
+					<td>第三行</td>
+					<td>第三行</td>
+				</tr>
+				<tr>
+					<td>第四行</td>
+					<td>第四行</td>
+				</tr>
+				<tr>
+					<td>第五行</td>
+					<td>第五行</td>
+				</tr>
+				<tr>
+					<td>第六行</td>
+					<td>第六行</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</body>
+
+</html>

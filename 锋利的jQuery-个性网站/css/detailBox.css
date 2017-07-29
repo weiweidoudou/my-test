@@ -1,0 +1,19 @@
+/*.right{background-color: red;}*/
+.goodsImg{width: 310px;height: 560px;float: left;}
+.goodsImg .jqzoom{height: 310px;border: 1px solid lightgray;}
+.goodsImg .bigger{width: 310px;text-align: center;padding: 5px;}
+.moreImg img{margin-right: 10px;margin-bottom: 15px;}
+.goodsIntroduce ul li{float:left;width: 70px;height: 18px;border: 1px solid #666;font-size: 14px;text-align: center;background-color: #f1f1f1;margin-right: 5px;border-bottom: none;}
+.goodsIntroduce>div{font-size: 14px;border: 1px solid #666;}
+
+.textDescription{width: 448px;float: right;}
+.textDescription h4{height: 18px;line-height: 18px;}
+.textDescription p{font-size: 12px;line-height: 25px;}
+.m{margin-right: 25px;}
+.old{text-decoration: line-through;}
+.new2{color: red;font-size: 30px;}
+.textDescription a{margin: 10px;}
+.size{border: 1px solid black;width: 30px;height:30px;display: inline-block;margin: 5px;text-align: center;line-height: 30px;}
+.star{height: 16px;margin-bottom: 20px;position: relative;overflow: hidden;}
+.star img{position: absolute;}
+
