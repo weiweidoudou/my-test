@@ -1,0 +1,50 @@
+
+			*{
+				box-sizing: border-box;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.outer{
+				margin: 20px;
+				background-color: #eee;
+				border: 1px solid #999;
+				
+			}
+			.outer div{
+				
+				border: 1px solid #999;
+				display: inline-block;
+			    vertical-align: top;
+			    background-color: white;
+			}
+			.center{
+				margin:0  20px;
+				width: calc(100% - 200px - 120px - 40px - 10px);
+			}
+			.left{
+				width: 200px;
+			}
+			.right{
+				width: 120px;
+			}
+			div{
+				padding: 20px;
+			}
+			img{
+				width: 80px;
+				height: 80px;
+				
+			}
+			span{
+				vertical-align: top;
+				line-height: 1em;
+			}
+			img{
+				margin-bottom: 20px;
+			}
+			.a{
+				margin-bottom: 0px;
+			}
+			
+			

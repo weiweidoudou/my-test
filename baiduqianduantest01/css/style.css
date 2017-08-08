@@ -1,0 +1,52 @@
+.gray{
+				color:gray;
+			}
+			header{
+				border-left:solid 1px gainsboro;
+				border-top:solid 1px gainsboro;
+				border-right:solid 2px gainsboro;
+				border-bottom:solid 2px gainsboro;
+				padding:20px 15px;
+			}
+			ul{
+				list-style: none;
+			}
+			th{
+				background-color: #000000;
+				color:white;
+			}
+			tfoot{
+				background-color: gray;
+			}
+			table,td,tr,th{
+				border:1px black solid;
+				border-collapse: collapse;
+				border-color: gray;
+			}
+			table{
+				width:100%;
+			}
+			#button{
+				width:100%;
+				background-color: cornflowerblue;
+				border-radius: 10px;
+			}
+			form{
+				margin: 10px auto;
+			}
+			
+			textarea{
+				width: 400px;
+			}
+			.left{
+				width: 40%;
+				text-align: right;
+				float: left;
+				line-height: 2em;
+				margin-right: 10px;
+			}
+			.right{
+				width: 40%;
+				float: left;
+				line-height: 2em;
+			}

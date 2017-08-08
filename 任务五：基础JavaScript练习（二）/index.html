@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>出入练习</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			#right_in {
+				margin-right: 50px;
+			}
+			
+			ul {
+				list-style: none;
+				
+				margin-top: 20px;
+				position: relative;
+				
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var ul = document.getElementById("ul");
+
+			}
+
+			function insert(direction) {
+				var lis=ul.getElementsByTagName("li");
+				if(lis.length <= 60) {
+					if(direction == "left") {
+
+						ul.insertBefore(add(), ul.firstChild);
+
+					} else if(direction == "right") {
+						ul.appendChild(add());
+					}
+				}else{
+					alert("您输入的已经到达最大限度了！不能再输入了！");
+				}
+
+				lis = ul.getElementsByTagName("li");
+
+				deleteData(ul, lis);
+			}
+
+			function leftOut() {
+
+				btnDelete(ul, ul.firstChild);
+			}
+
+			function rightOut() {
+
+				btnDelete(ul, ul.lastChild);
+			}
+			function btnSort(){
+				
+				var lis=ul.getElementsByTagName("li");
+				var arr=new Array();
+				for(var i=0;i<lis.length;i++){
+					arr.push(lis[i].style.height);
+				}
+				
+				arr.sort();
+				alert(arr);
+				for(var i=0;i<arr.length;i++){
+					var li=document.createElement("li");
+					li.style.backgroundColor = "red";
+					
+					
+					li.style.marginRight = "5px";
+					li.style.width="20px";
+					li.style.height=arr[i];
+					
+					li.style.display="inline-block";
+					ul.replaceChild(li,lis[i]);
+				}
+				/*var arr=new Array();
+				for(var i=0;i<lis.length;i++){
+					arr.push(lis[i].toString());
+				}
+				alert(arr);
+				arr.sort(function(a,b){
+					return 	a.style.height-b.style.height;
+					});
+				ul.innerHTML=arr.toString();	
+				 */
+//				for(var i=0;i<lis.length;i++){
+//					for(var j=0;j<lis.length;j++){
+//						if(lis[i].style.height<lis[j].style.height){
+//							var c=lis[j].style.height;
+//							lis[j].style.height=lis[i].style.height;
+//							lis[i].style.height=c;
+//							
+//						}
+//					}
+//				}
+				
+			}
+
+			//获取用户h输入的数字并为ul创建相应的子元素
+			function add() {
+				var mNumber = document.getElementById("mNumber");
+
+				if(mNumber.value == "") {
+					alert("请输入需要插入的值"); //输入框为空，按钮点击时，跳出提示框
+					mNumber.focus();
+				} else if(isNaN(mNumber.value)) {
+					alert("只能输入数字"); //输入框为非数字，按钮点击时，跳出提示框
+					mNumber.value = "";
+					mNumber.focus();
+				} else if(mNumber.value > 100 || mNumber.value < 10) {
+					alert("请输入10-100之间的数字");
+					mNumber.value = "";
+					mNumber.focus();
+				} else {
+					var li = document.createElement("li");
+
+					
+					li.style.backgroundColor = "red";
+					
+					
+					li.style.marginRight = "5px";
+					li.style.width="20px";
+					li.style.height=mNumber.value+"px";
+					
+					li.style.display="inline-block";
+					
+				
+					
+					return li;
+
+				}
+
+			}
+
+			//为每一个li添加点击删除事件
+			function deleteData(a, b) {
+				for(var i = 0; i < b.length; i++) {
+					b[i].onclick = function() {
+						var isDelete = confirm("您确定要删除此数据吗？");
+						if(isDelete) {
+							a.removeChild(this);
+						}
+					}
+				}
+			}
+
+			//a删除b这个子元素
+			function btnDelete(a, b) {
+
+				var isDelete = confirm("您确定要删除元素吗");
+				if(isDelete) {
+					a.removeChild(b);
+
+				}
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<input id="mNumber" type="text" />
+			<button id="left_in" onclick="insert('left')">左侧入</button>
+			<button id="right_in" onclick="insert('right')">右侧入</button>
+			<button id="left_out" onclick="leftOut()">左侧出</button>
+			<button id="right_out" onclick="rightOut()">右侧出</button>
+		</div>
+		<ul id="ul"></ul>
+		<button id="sort" onclick="btnSort()">排序</button>
+
+	</body>
+
+</html>
