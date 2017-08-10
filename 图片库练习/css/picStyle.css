@@ -1,0 +1,24 @@
+#imageList li{
+	list-style: none;
+	float: left;
+	margin: 10px;
+	font-size: 20px;
+}
+
+#imageList a{
+	text-decoration: none;
+}
+.clear:before,
+.clear:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+
+div{
+	width: 200px;
+	height: 50px;
+	background-color: greenyellow;
+	text-align: center;
+	line-height: 40px;
+}
